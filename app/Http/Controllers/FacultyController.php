@@ -15,7 +15,9 @@ class FacultyController extends Controller
      */
     public function index()
     {
-        return view('faculties.index'); 
+        $faculties = Faculty::all();
+        $data = ['faculties' => $faculties];
+        return view('faculties.index', $data); 
     }
 
     /**
@@ -25,7 +27,7 @@ class FacultyController extends Controller
      */
     public function create()
     {
-        //
+        return view('faculties.create');
     }
 
     /**
@@ -36,7 +38,12 @@ class FacultyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $faculty = new Faculty();
+       $fname=$request->fname;
+       $faculty->fname=$fname;
+       $faculty->save();
+       $data = ['fname'=>$fname];
+       return view('faculties.store',$data);
     }
 
     /**
