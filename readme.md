@@ -25,3 +25,7 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+ТЕПЕРЬ ПО ДЕЛУ.
+1. создаём БД univer (импортируем таблички univer.sql)
+2. при входе почта админа: admin@ukr.net пароль: 111111
