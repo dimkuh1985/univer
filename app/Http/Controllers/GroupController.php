@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use DB;
+use App\Faculty;
+use App\Group;
 use App\Http\Requests;
 
 class GroupController extends Controller
@@ -14,8 +16,11 @@ class GroupController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('groups.index');
+    {        
+        $exec = DB::table('faculties')->join('groups','faculties.id','=','groups.faculty_id')->select('groups.gname','faculties.fname')->get(); //запрос на выборку.
+        $data = ['exec' => $exec];  
+
+        return view('groups.index', $data);         
     }
 
     /**
@@ -25,7 +30,13 @@ class GroupController extends Controller
      */
     public function create()
     {
-        //
+        $groups = Group::all();
+        $data = ['groups' => $groups];
+        
+        $faculties = Faculty::all();
+        $data1 = ['faculties' => $faculties];
+
+        return view('groups.create', $data, $data1);
     }
 
     /**
@@ -36,7 +47,17 @@ class GroupController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $group = new Group();
+
+       $gname=$request->gname;
+       $group->gname=$gname;
+
+       $faculty_id=$request->faculty_id;
+       $group->faculty_id=$faculty_id;
+
+       $group->save();
+       $data = ['gname'=>$gname, 'faculty_id'=>$faculty_id];
+       return view('groups.store',$data);
     }
 
     /**
