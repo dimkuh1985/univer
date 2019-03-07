@@ -8,7 +8,7 @@
                 <h2 class="card-header">Добавление факультета</h2>
                 <div class="panel-body">
                     <div class="alert alert-success" role="alert">
-                        <h2>Исхдные данные</h2>
+                        <h2>Исходные данные</h2>
                     </div>                    
                     <hr>
                     <form id="form1" action="{{route('faculties.store')}}" method="post">
@@ -24,7 +24,7 @@
                     </form>
                     <hr>
                     <h5>
-                        <a href="{{url('/home')}}">На главную</a>
+                        <a href="{{route('faculties.index')}}">Назад к факультетам</a>
                     </h5>                    
                 </div>
             </div>

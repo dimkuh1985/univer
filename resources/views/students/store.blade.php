@@ -7,12 +7,11 @@
             <div class="panel panel-default">
                 <h2 class="panel-heading" style="margin: 0; text-align: center;">Отчёт об операции</h2>                    
                 <div class="panel-body">
-                    <h3 style="margin: 0; text-align: center;">Факультет {{$fname}} успешно добавлен!</h3>
-                    <hr>
-                    
+                    <h3 style="margin: 0; text-align: center;">Студент {{$sname}} успешно добавлен!</h3>
+                    <hr>                    
                     <hr>
                     <h5>
-                       <a href="{{ route('faculties.index') }}">Назад к факультетам</a>
+                        <a href="{{route('students.index')}}">Назад к студентам</a>
                     </h5>                        
                     </div>
                 </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Group;
 use App\Faculty;
 use App\Http\Requests;
 
@@ -17,6 +18,8 @@ class FacultyController extends Controller
     {
         $faculties = Faculty::all();
         $data = ['faculties' => $faculties];
+        
+        
         return view('faculties.index', $data); 
     }
 
@@ -39,8 +42,10 @@ class FacultyController extends Controller
     public function store(Request $request)
     {
        $faculty = new Faculty();
+
        $fname=$request->fname;
        $faculty->fname=$fname;
+       
        $faculty->save();
        $data = ['fname'=>$fname];
        return view('faculties.store',$data);
