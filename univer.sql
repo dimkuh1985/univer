@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 20 2019 г., 23:25
+-- Время создания: Мар 13 2019 г., 19:27
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -35,6 +35,16 @@ CREATE TABLE `faculties` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Дамп данных таблицы `faculties`
+--
+
+INSERT INTO `faculties` (`id`, `fname`, `created_at`, `updated_at`) VALUES
+(1, 'Developers', NULL, NULL),
+(2, 'Design', NULL, NULL),
+(3, 'SysAdmin', NULL, NULL),
+(4, 'Robotics', '2019-03-04 08:20:36', '2019-03-04 08:20:36');
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +58,18 @@ CREATE TABLE `groups` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Дамп данных таблицы `groups`
+--
+
+INSERT INTO `groups` (`id`, `gname`, `faculty_id`, `created_at`, `updated_at`) VALUES
+(1, 'С9_П28', 1, NULL, NULL),
+(2, 'С18_1Д', 2, '2019-03-06 06:39:03', '2019-03-06 06:39:03'),
+(3, 'Kid_12A', 4, '2019-03-06 06:39:47', '2019-03-06 06:39:47'),
+(4, 'Kid_13A', 4, '2019-03-06 08:17:03', '2019-03-06 08:17:03'),
+(5, 'Flash_01001', 3, '2019-03-06 14:13:18', '2019-03-06 14:13:18'),
+(6, 'A15_DIS', 2, '2019-03-07 09:52:42', '2019-03-07 09:52:42');
 
 -- --------------------------------------------------------
 
@@ -99,6 +121,22 @@ CREATE TABLE `students` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Дамп данных таблицы `students`
+--
+
+INSERT INTO `students` (`id`, `sname`, `age`, `rate`, `group_id`, `created_at`, `updated_at`) VALUES
+(1, 'Василий Пупкин', 22, 5.0, 1, NULL, NULL),
+(2, 'Пётр Вальцман', 48, 5.0, 3, '2019-03-07 10:52:00', '2019-03-07 10:52:00'),
+(3, 'Игорь Федай', 22, 1.0, 1, '2019-03-07 10:53:07', '2019-03-07 10:53:07'),
+(4, 'Марина Лол', 18, 1.1, 6, '2019-03-07 10:53:57', '2019-03-07 10:53:57'),
+(5, 'Саша Марценюк', 26, 2.9, 5, '2019-03-07 10:55:11', '2019-03-07 10:55:11'),
+(6, 'Дмитрий Кухарев', 33, 11.9, 1, '2019-03-07 10:59:57', '2019-03-07 10:59:57'),
+(7, 'Сергей Косяченко', 34, 11.1, 1, '2019-03-07 11:54:15', '2019-03-07 11:54:15'),
+(8, 'Олег Марцинкевич', 25, 5.9, 3, '2019-03-12 11:35:08', '2019-03-12 11:35:08'),
+(10, 'Юлия Ларченко', 19, 12.0, 1, '2019-03-12 11:37:51', '2019-03-12 11:37:51'),
+(21, 'Андрей Применко', 30, 10.1, 4, '2019-03-13 14:17:15', '2019-03-13 14:17:15');
+
 -- --------------------------------------------------------
 
 --
@@ -120,7 +158,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@ukr.net', '$2y$10$pxYCkH64oid79sMWrgdV3e5n261mlUrpNqK8ABlVQTxNufrEnLRb.', '1fHDuVqzjpcmHa8x8hF8qyxUdqniEuH2hxV6weg8LsM50HDuied2D5UxKHL1', '2019-02-18 19:39:43', '2019-02-20 14:17:22');
+(1, 'admin', 'admin@ukr.net', '$2y$10$pxYCkH64oid79sMWrgdV3e5n261mlUrpNqK8ABlVQTxNufrEnLRb.', 'QamdTXBWhDsGKuvOyb5s0OmSBOEx4Lbqb4gTh290BuFUlStH7hPNNOS0UtVA', '2019-02-18 19:39:43', '2019-03-07 11:57:27');
 
 --
 -- Индексы сохранённых таблиц
@@ -152,8 +190,8 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `students`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `students_sname_unique` (`sname`),
-  ADD KEY `students_group_id_foreign` (`group_id`);
+  ADD KEY `students_group_id_foreign` (`group_id`),
+  ADD KEY `students_sname_unique` (`sname`) USING BTREE;
 
 --
 -- Индексы таблицы `users`
@@ -170,19 +208,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `faculties`
 --
 ALTER TABLE `faculties`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `users`

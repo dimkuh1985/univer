@@ -11,10 +11,26 @@
                     </h3>
                     <hr>
                     <h5>
-                        <a href="{{ url('/home') }}">
-                            На Главную
-                        </a>
+                        <a href="{{ url('/home') }}">На Главную</a>
                     </h5>
+                    @if (Auth::user()->name == 'admin')
+                        <h5>
+                            <a href="{{route('faculties.create')}}">Добавить факультет</a>
+                        </h5>
+                    @endif
+                    <hr>
+                    <div class="row">
+                        @foreach ($faculties as $faculty)
+                            <div class="col-md-4" style="text-align: center;">
+                                <hr>
+                                <h4>{{$faculty->fname}}</h4>
+                                <hr>
+                                <h5>
+                                    <a href="">Подробно</a>
+                                </h5>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
