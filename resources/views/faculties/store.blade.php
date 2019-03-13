@@ -12,7 +12,9 @@
                     
                     <hr>
                     <h5>
-                       <a href="{{ route('faculties.index') }}">Назад к факультетам</a>
+                        <a href="{{ url('/home') }}">
+                            На Главную
+                        </a>
                     </h5>                        
                     </div>
                 </div>
