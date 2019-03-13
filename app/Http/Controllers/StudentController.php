@@ -22,7 +22,7 @@ class StudentController extends Controller
         $exec = DB::table('faculties')
         ->join('groups','faculties.id','=','groups.faculty_id')
         ->join('students','groups.id','=','students.group_id')
-        ->select('students.sname','students.age','students.rate','groups.gname','faculties.fname')->get(); //запрос на выборку.
+        ->select('students.id','students.sname','students.age','students.rate','groups.gname','faculties.fname')->get(); //запрос на выборку.
         
         $data = ['exec' => $exec];  
 
@@ -36,9 +36,9 @@ class StudentController extends Controller
      */
     public function create()
     {
-
-        $exec = DB::table('faculties')->join('groups','faculties.id','=','groups.faculty_id')->select('groups.id','groups.gname','faculties.fname')->get();
-        $data = ['exec' => $exec];          
+        
+       $exec = DB::table('faculties')->join('groups','faculties.id','=','groups.faculty_id')->select('groups.gname','faculties.fname', 'groups.id')->get(); //запрос на выборку.
+       $data = ['exec' => $exec];
 
         return view('students.create', $data);
     }
@@ -112,6 +112,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('students')->where('id', '=', $id)->delete();        
+
+        return redirect()->route('students.index');
     }
 }

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="card">
-                <h2 class="card-header">Добавление группы</h2>
+                <h2 class="card-header">Добавление Студентов</h2>
                 <div class="panel-body">
                     <div class="alert alert-success" role="alert">
                         <h2>Исходные данные</h2>
