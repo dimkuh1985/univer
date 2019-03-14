@@ -89,7 +89,25 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        $data = ['student' => $student]; 
+
+        $exec = DB::table('faculties')
+        ->join('groups','faculties.id','=','groups.faculty_id')
+        ->join('students','groups.id','=','students.group_id')
+        ->select('groups.id','students.rate','groups.gname','faculties.fname')
+        ->where('students.id','=',$id)
+        ->get();
+
+        /*$exec2 = DB::table('faculties')
+        ->join('groups','faculties.id','=','groups.faculty_id')
+        ->select('groups.id','groups.gname','faculties.fname')
+        ->get();*/
+
+        $data1 = ['exec' => $exec];
+        //$data2 = ['exec2' => $exec2];             
+
+        return view('students.edit', $data, $data1);
     }
 
     /**
@@ -101,7 +119,23 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $student = Student::find($id);
+
+       $sname=$request->sname;
+       $student->sname=$sname;
+
+       $age=$request->age;
+       $student->age=$age;
+
+       $rate=$request->rate;
+       $student->rate=$rate;
+
+       $group_id=$request->group_id;
+       $student->group_id=$group_id;
+
+       $student->save();
+       
+       return redirect()->route('students.index');
     }
 
     /**
