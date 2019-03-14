@@ -30,18 +30,22 @@
                             <p>
                             	<select for="group_id" class="form-control" name="group_id" id="group_id">                            
                             	@foreach($exec as $ex)                            		                          	                      
-                          			<option value="{{$ex->id}}">{{$ex->gname}} ({{$ex->fname}})</option>                          			
+                          			<option value="{{$ex->id}}" hidden>{{$ex->gname}} ({{$ex->fname}})</option>                          			
                           		@endforeach
-                          	</select>                           
+                          		@foreach($exec2 as $ex2)                            		                          	                      
+                          			<option value="{{$ex2->id}}">{{$ex2->gname}} ({{$ex2->fname}})</option>                          			
+                          		@endforeach
+                          		</select>                         		
+
                           	</p>
                         	</p>                            
                         </p>
                         <div>
                         <p>
-                            <input type="submit" class="form-control" name="submit" value="Сохранить" style="width: 120px; font-size: 12pt;">
+                            <input type="submit" class="btn btn-success btn-lg" name="submit" value="Сохранить" style="width: 120px; font-size: 12pt;">
                         </p>
                         <p>
-                            <a href="{{route('students.edit', $student->id)}}" class="form-control" style="width: 120px; font-size: 12pt;">Отмена</a>
+                            <a href="{{route('students.edit', $student->id)}}" class="btn btn-danger btn-lg" style="width: 120px; font-size: 12pt;">Отмена</a>
                         </p>
                     	</div>
                     </form>

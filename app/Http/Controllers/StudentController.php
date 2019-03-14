@@ -95,17 +95,18 @@ class StudentController extends Controller
         $exec = DB::table('faculties')
         ->join('groups','faculties.id','=','groups.faculty_id')
         ->join('students','groups.id','=','students.group_id')
-        ->select('groups.id','students.rate','groups.gname','faculties.fname')
+        ->select('groups.id','groups.gname','faculties.fname')
         ->where('students.id','=',$id)
         ->get();
 
-        /*$exec2 = DB::table('faculties')
+
+        $exec2 = DB::table('faculties')
         ->join('groups','faculties.id','=','groups.faculty_id')
         ->select('groups.id','groups.gname','faculties.fname')
-        ->get();*/
+        ->get();
 
-        $data1 = ['exec' => $exec];
-        //$data2 = ['exec2' => $exec2];             
+        $data1 = ['exec' => $exec, 'exec2' => $exec2];      
+            
 
         return view('students.edit', $data, $data1);
     }
