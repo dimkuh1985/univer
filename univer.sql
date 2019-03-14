@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 13 2019 г., 19:27
+-- Время создания: Мар 14 2019 г., 19:40
 -- Версия сервера: 5.6.41
 -- Версия PHP: 5.5.38
 
@@ -126,7 +126,6 @@ CREATE TABLE `students` (
 --
 
 INSERT INTO `students` (`id`, `sname`, `age`, `rate`, `group_id`, `created_at`, `updated_at`) VALUES
-(1, 'Василий Пупкин', 22, 5.0, 1, NULL, NULL),
 (2, 'Пётр Вальцман', 48, 5.0, 3, '2019-03-07 10:52:00', '2019-03-07 10:52:00'),
 (3, 'Игорь Федай', 22, 1.0, 1, '2019-03-07 10:53:07', '2019-03-07 10:53:07'),
 (4, 'Марина Лол', 18, 1.1, 6, '2019-03-07 10:53:57', '2019-03-07 10:53:57'),
@@ -134,8 +133,8 @@ INSERT INTO `students` (`id`, `sname`, `age`, `rate`, `group_id`, `created_at`, 
 (6, 'Дмитрий Кухарев', 33, 11.9, 1, '2019-03-07 10:59:57', '2019-03-07 10:59:57'),
 (7, 'Сергей Косяченко', 34, 11.1, 1, '2019-03-07 11:54:15', '2019-03-07 11:54:15'),
 (8, 'Олег Марцинкевич', 25, 5.9, 3, '2019-03-12 11:35:08', '2019-03-12 11:35:08'),
-(10, 'Юлия Ларченко', 19, 12.0, 1, '2019-03-12 11:37:51', '2019-03-12 11:37:51'),
-(21, 'Андрей Применко', 30, 10.1, 4, '2019-03-13 14:17:15', '2019-03-13 14:17:15');
+(10, 'Юлия Ларченко', 19, 12.0, 1, '2019-03-12 11:37:51', '2019-03-14 14:36:59'),
+(23, 'Андрей Применко', 44, 2.9, 4, '2019-03-14 13:35:19', '2019-03-14 13:37:31');
 
 -- --------------------------------------------------------
 
@@ -158,7 +157,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@ukr.net', '$2y$10$pxYCkH64oid79sMWrgdV3e5n261mlUrpNqK8ABlVQTxNufrEnLRb.', 'QamdTXBWhDsGKuvOyb5s0OmSBOEx4Lbqb4gTh290BuFUlStH7hPNNOS0UtVA', '2019-02-18 19:39:43', '2019-03-07 11:57:27');
+(1, 'admin', 'admin@ukr.net', '$2y$10$pxYCkH64oid79sMWrgdV3e5n261mlUrpNqK8ABlVQTxNufrEnLRb.', '61b6YIpxDhGZBAlRnLwkJUCjkih7Sdd32Axqmnv8VksEQhjd2Rbp9BfY5E0n', '2019-02-18 19:39:43', '2019-03-13 14:45:19');
 
 --
 -- Индексы сохранённых таблиц
@@ -220,7 +219,7 @@ ALTER TABLE `groups`
 -- AUTO_INCREMENT для таблицы `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
