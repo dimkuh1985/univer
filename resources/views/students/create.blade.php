@@ -39,9 +39,16 @@
                           	</p>
                         	</p>                            
                         </p>
-                        <p>
-                            <input type="submit" class="form-control" name="submit" value="Добавить" style="width: 120px; font-size: 12pt;">
-                        </p>
+                         <div class="row">
+                            <div class="col-sm-2">
+                        
+                            <input type="submit" class="btn btn-success btn-lg" name="submit" value="Сохранить" style="width: 120px; font-size: 12pt;">
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="{{route('students.create')}}" class="btn btn-danger btn-lg" style="width: 120px; font-size: 12pt;">Отмена</a>
+                        </div>
+                        
+                        </div>
                     </form>
                     <hr>
                     <h5>

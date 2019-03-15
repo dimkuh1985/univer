@@ -19,7 +19,7 @@
                             <input type="text" name="fname" id="fname" required="" style="width: 600px"/>
                         </p>
                         <p>
-                            <input type="submit" name="submit" value="Добавить" style="width: 120px; font-size: 12pt;">
+                            <input type="submit" class="btn btn-success btn-lg" name="submit" value="Добавить" style="width: 120px; font-size: 12pt;">
                         </p>
                     </form>
                     <hr>
