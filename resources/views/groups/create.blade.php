@@ -32,7 +32,7 @@
                         	</p>                            
                         </p>
                         <p>
-                            <input type="submit" class="form-control" name="submit" value="Добавить" style="width: 120px; font-size: 12pt;">
+                            <input type="submit" class="btn btn-success btn-lg" name="submit" value="Добавить" style="width: 120px; font-size: 12pt;">
                         </p>
                     </form>
                     <hr>
